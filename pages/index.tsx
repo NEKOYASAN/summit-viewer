@@ -248,7 +248,7 @@ const Home: NextPage = () => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>CoC / Privacy Policyについて</ModalHeader>
+          <ModalHeader>Code of Conduct / Privacy Policyについて</ModalHeader>
           <ModalBody>
             <Heading fontSize={'1.4rem'} mb={2}>
               Code of Conduct (行動規約)について
