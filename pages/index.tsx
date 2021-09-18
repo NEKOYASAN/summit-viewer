@@ -119,6 +119,18 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
     setHostName(location.hostname);
     if (trackData) {
       setOGPData(trackData);
+      if (trackData.broadcastingURL) {
+        setViewYTID(trackData.broadcastingURL);
+      }
+      if (trackData.udtalkWebURL) {
+        setViewUDWeb(trackData.udtalkWebURL);
+      }
+      if (trackData.udtalkAppURL) {
+        setViewUDApp(trackData.udtalkAppURL);
+      }
+      if (trackData.graphicRecording) {
+        setViewGRID(trackData.graphicRecording);
+      }
     }
     updateData();
   }, []);
