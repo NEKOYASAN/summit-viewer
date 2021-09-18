@@ -36,6 +36,7 @@ const Home: NextPage = () => {
   const [viewYTID, setViewYTID] = useState<undefined | string>(undefined);
   const [viewUDWeb, setViewUDWeb] = useState<undefined | string>(undefined);
   const [viewUDApp, setViewUDApp] = useState<undefined | string>(undefined);
+  const [hostName, setHostName] = useState<string>('');
   const updateData = () => {
     const datas = json.filter((value) => {
       return (
@@ -51,6 +52,7 @@ const Home: NextPage = () => {
     }
   };
   useEffect(() => {
+    setHostName(location.hostname);
     updateData();
   }, []);
   useEffect(() => {
@@ -140,7 +142,7 @@ const Home: NextPage = () => {
           >
             {viewYTID ? (
               <iframe
-                src={`https://www.youtube.com/live_chat?v=${viewYTID}&embed_domain=localhost`}
+                src={`https://www.youtube.com/live_chat?v=${viewYTID}&embed_domain=${hostName}`}
                 width="100%"
                 height="100%"
                 title="Chat"
