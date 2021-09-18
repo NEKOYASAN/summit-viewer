@@ -1,11 +1,32 @@
 import type { NextPage } from 'next';
-import { Icon, AspectRatio, Box, Button, Center, Flex, Text } from '@chakra-ui/react';
+import {
+  Icon,
+  AspectRatio,
+  Box,
+  Button,
+  Center,
+  Flex,
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Heading,
+  UnorderedList,
+  ListItem,
+  Code,
+  Link,
+  Checkbox,
+} from '@chakra-ui/react';
 import { TrackCard } from '../components/TrackCard';
 import { Yazirusi } from '../components/yazirusi';
 import json from '../day1.json';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { MdLiveTv, MdChat } from 'react-icons/md';
+import { use } from 'ast-types';
 
 const isBetween = require('dayjs/plugin/isBetween');
 dayjs.extend(isBetween);
@@ -37,6 +58,8 @@ const Home: NextPage = () => {
   const [viewUDWeb, setViewUDWeb] = useState<undefined | string>(undefined);
   const [viewUDApp, setViewUDApp] = useState<undefined | string>(undefined);
   const [hostName, setHostName] = useState<string>('');
+  const [cocCheck, setCoCCheck] = useState<boolean>(false);
+  const [modalCheck, setModalCheck] = useState(false);
   const updateData = () => {
     const datas = json.filter((value) => {
       return (
@@ -52,6 +75,8 @@ const Home: NextPage = () => {
     }
   };
   useEffect(() => {
+    const CoC = localStorage.getItem('CoCCheck');
+    setCoCCheck(!!CoC);
     setHostName(location.hostname);
     updateData();
   }, []);
@@ -214,6 +239,83 @@ const Home: NextPage = () => {
             : undefined}
         </Flex>
       </Center>
+      <Modal
+        closeOnOverlayClick={false}
+        isOpen={!cocCheck}
+        onClose={() => {}}
+        scrollBehavior={'inside'}
+        size={'xl'}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>CoC / Privacy Policyについて</ModalHeader>
+          <ModalBody>
+            <Heading fontSize={'1.4rem'} mb={2}>
+              Code of Conduct (行動規約)について
+            </Heading>
+            <UnorderedList>
+              <ListItem>
+                サミットは参加者・セッション登壇者・スタッフみんなでつくるイベントです
+              </ListItem>
+              <ListItem>
+                誰もが参加しやすいサミットを「ともに考え、ともにつくる」ことを目指しています
+              </ListItem>
+              <ListItem>
+                お互い敬意を持って、価値観を認め合いながら、建設的に意見を交わしましょう
+              </ListItem>
+              <ListItem>
+                それぞれが文化的および個人的なバックグラウンドがあることを理解するように努めましょう
+              </ListItem>
+            </UnorderedList>
+            <Text fontWeight="bold" mt={2}>
+              全文は以下のURLにございますのでご確認ください。
+            </Text>
+            <Link href="https://github.com/codeforjapan/codeofconduct" isExternal>
+              https://github.com/codeforjapan/codeofconduct
+            </Link>
+            <Text>
+              また、お困りのことがありましたら<Code>CoC[at]code4japan.org</Code>
+            </Text>
+            <Text>
+              もしくはCode for Japan Slackにて<Code>@jinnouchi</Code> / <Code>@takesada_c4j</Code>
+              のどちらかにご連絡ください。
+            </Text>
+
+            <Heading fontSize={'1.4rem'} mb={2} mt={'1rem'}>
+              Privacy Policyについて
+            </Heading>
+            <Text>本イベントはCode for Japanが主催し開催しているイベントとなります。</Text>
+            <Text>以下のリンクよりPrivacy Policyも合わせてご確認ください。</Text>
+            <Link href="https://www.code4japan.org/privacy-policy" isExternal>
+              https://www.code4japan.org/privacy-policy
+            </Link>
+          </ModalBody>
+
+          <ModalFooter>
+            <Checkbox
+              isChecked={modalCheck}
+              onChange={(e) => {
+                setModalCheck(e.target.checked);
+              }}
+            >
+              Code for Japanのプライバシーポリシー・ Code of Conductに同意する
+            </Checkbox>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              isDisabled={!modalCheck}
+              onClick={() => {
+                if (modalCheck) {
+                  localStorage.setItem('CoCCheck', 'true');
+                  setCoCCheck(true);
+                }
+              }}
+            >
+              閉じる
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
