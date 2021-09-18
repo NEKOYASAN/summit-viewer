@@ -22,6 +22,7 @@ export const TrackCard: VFC<Props> = ({ onClick, trackName, trackTitle }) => {
       maxW={'240px'}
       maxH={'160px'}
       padding={'10px'}
+      cursor={'pointer'}
       onClick={(e) => {
         onClick(e);
       }}
