@@ -33,6 +33,9 @@ const Home: NextPage = () => {
   const [data, setData] = useState<TimeSections | undefined>(undefined);
   const [time, updateTime] = useState(dayjs());
   const [viewTrack, setViewTrack] = useState(-1);
+  const [viewYTID, setViewYTID] = useState<undefined | string>(undefined);
+  const [viewUDWeb, setViewUDWeb] = useState<undefined | string>(undefined);
+  const [viewUDApp, setViewUDApp] = useState<undefined | string>(undefined);
   const updateData = () => {
     const datas = json.filter((value) => {
       return (
@@ -51,10 +54,30 @@ const Home: NextPage = () => {
     updateData();
   }, []);
   useEffect(() => {
+    if (data) {
+      if (data.data[viewTrack]?.broadcastingURL) {
+        setViewYTID(data.data[viewTrack]?.broadcastingURL);
+      }
+      if (data.data[viewTrack]?.udtalkWebURL) {
+        setViewUDWeb(data.data[viewTrack]?.udtalkWebURL);
+      }
+      if (data.data[viewTrack]?.udtalkAppURL) {
+        setViewUDApp(data.data[viewTrack]?.udtalkAppURL);
+      }
+    }
+  }, [data]);
+  useEffect(() => {
+    if (data) {
+      setViewYTID(data.data[viewTrack]?.broadcastingURL);
+      setViewUDWeb(data.data[viewTrack]?.udtalkWebURL);
+      setViewUDApp(data.data[viewTrack]?.udtalkAppURL);
+    }
+  }, [viewTrack]);
+  useEffect(() => {
     const timeoutId = setTimeout(() => {
-      // if (time.minute() !== dayjs().minute()) {
-      updateData();
-      //}
+      if (time.minute() !== dayjs().minute()) {
+        updateData();
+      }
       updateTime(dayjs());
     }, 1000);
     return () => {
@@ -73,9 +96,9 @@ const Home: NextPage = () => {
             borderWidth={'3px'}
             borderStyle={'dashed'}
           >
-            {data && data.data[viewTrack]?.broadcastingURL ? (
+            {viewYTID ? (
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${data.data[viewTrack]?.broadcastingURL}?autoplay=1`}
+                src={`https://www.youtube-nocookie.com/embed/${viewYTID}?autoplay=1`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -115,9 +138,9 @@ const Home: NextPage = () => {
             alignItems={'center'}
             gridGap={'10px 0'}
           >
-            {data && data.data[viewTrack]?.broadcastingURL ? (
+            {viewYTID ? (
               <iframe
-                src={`https://www.youtube.com/live_chat?v=${data.data[viewTrack]?.broadcastingURL}&embed_domain=localhost`}
+                src={`https://www.youtube.com/live_chat?v=${viewYTID}&embed_domain=localhost`}
                 width="100%"
                 height="100%"
                 title="Chat"
@@ -142,21 +165,16 @@ const Home: NextPage = () => {
               </Flex>
             )}
             <Flex justify={'space-evenly'}>
-              {data && data.data[viewTrack]?.udtalkWebURL ? (
-                <Button
-                  as={'a'}
-                  href={data.data[viewTrack]?.udtalkWebURL}
-                  target={'_blank'}
-                  rel={'noopener noreferrer'}
-                >
+              {viewUDWeb ? (
+                <Button as={'a'} href={viewUDWeb} target={'_blank'} rel={'noopener noreferrer'}>
                   字幕をWebで見る
                 </Button>
               ) : undefined}
 
-              {data && data.data[viewTrack]?.udtalkWebURL ? (
+              {viewUDApp ? (
                 <Button
                   as={'a'}
-                  href={`udtalkapp://?${data.data[viewTrack]?.udtalkAppURL.split('?')[1]}`}
+                  href={`udtalkapp://?${viewUDApp.split('?')[1]}`}
                   target={'_blank'}
                   rel={'noopener noreferrer'}
                 >

@@ -130,8 +130,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   },
   {
@@ -265,8 +264,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   },
   {
@@ -398,8 +396,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   },
   {
@@ -560,8 +557,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": "ASJfrwK40AM"
-      },
-      null
+      }
     ]
   },
   {
@@ -693,8 +689,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   },
   {
@@ -826,20 +821,6 @@
         "udtalkWebURL": "https://live.udtalk.jp/f44ff4f28aa3dae8d21d7929d13b69b2c76bb8431d3bafd82bedbc4a42162af2"
       },
       {
-        "title": "休憩",
-        "startTime": "15:30",
-        "endTime": "16:20",
-        "category": 4,
-        "description": "休憩",
-        "inputCompleted": "0",
-        "presenters": [],
-        "programId": "8634ffa5fc0142b0bb6e9a1f30cfce52",
-        "trackNum": 7,
-        "udtalkWebURL": "",
-        "udtalkAppURL": "",
-        "broadcastingURL": ""
-      },
-      {
         "title": "東日本大震災から10年、Hack For Japanとしての活動を振り返る",
         "startTime": "15:30",
         "endTime": "16:20",
@@ -871,8 +852,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": "6mmJm_25w44"
-      },
-      null
+      }
     ]
   },
   {
@@ -1004,8 +984,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   },
   {
@@ -1173,8 +1152,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": "iR6xRGhVRjg"
-      },
-      null
+      }
     ]
   },
   {
@@ -1306,8 +1284,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   },
   {
@@ -1441,8 +1418,7 @@
         "udtalkWebURL": "",
         "udtalkAppURL": "",
         "broadcastingURL": ""
-      },
-      null
+      }
     ]
   }
 ]
