@@ -1,31 +1,30 @@
 import type { NextPage } from 'next';
 import {
-  Icon,
-  AspectRatio,
   Box,
   Button,
-  Center,
-  Flex,
-  Text,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Heading,
-  UnorderedList,
-  ListItem,
-  Code,
-  Link,
   Checkbox,
+  Code,
+  Flex,
+  Grid,
+  Heading,
+  Icon,
+  Link,
+  ListItem,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  UnorderedList,
 } from '@chakra-ui/react';
 import { TrackCard } from '../components/TrackCard';
 import { Yazirusi } from '../components/yazirusi';
-import json from '../day1.json';
+import json from '../day2.json';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
-import { MdLiveTv, MdChat, MdPalette } from 'react-icons/md';
+import { MdChat, MdLiveTv, MdPalette } from 'react-icons/md';
 
 type TimeSections = {
   startTime: string;
@@ -61,9 +60,9 @@ const Home: NextPage = () => {
   const updateData = () => {
     const datas = json.filter((value) => {
       return (
-        (dayjs().isAfter(dayjs(`2021-09-18T${value.startTime}:00.000+09:00`, 'minute')) &&
-          dayjs().isBefore(dayjs(`2021-09-18T${value.endTime}:00.000+09:00`, 'minute'))) ||
-        dayjs().isSame(dayjs(`2021-09-18T${value.endTime}:00.000+09:00`, 'minute'))
+        (dayjs().isAfter(dayjs(`2021-09-19T${value.startTime}:00.000+09:00`, 'minute')) &&
+          dayjs().isBefore(dayjs(`2021-09-19T${value.endTime}:00.000+09:00`, 'minute'))) ||
+        dayjs().isSame(dayjs(`2021-09-19T${value.endTime}:00.000+09:00`, 'minute'))
       );
     });
     if (datas.length) {
@@ -114,114 +113,129 @@ const Home: NextPage = () => {
     };
   }, [time]);
   return (
-    <Box backgroundColor={'#262626'} minH={'100vh'}>
-      <Center paddingY={'5px'}>
-        <Flex gridGap={'0 10px'}>
-          <AspectRatio
-            ratio={16 / 9}
-            width={'60vw'}
-            maxHeight={'55vh'}
-            rounded={'md'}
-            borderColor={'#ffffff'}
-            borderWidth={'3px'}
-            borderStyle={'dashed'}
-          >
-            {viewYTID ? (
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${viewYTID}?autoplay=1`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                width="100%"
-                height="100%"
-              />
-            ) : (
-              <Flex rounded={'md'} flexDirection={'column'} gridGap={'10px 0'}>
-                <Icon as={MdLiveTv} color={'#ffffff'} boxSize={'100px'} />
-                <Text color={'#ffffff'} fontSize={'1.6rem'}>
-                  まだ配信を見るトラックが選ばれてないみたいです
-                </Text>
-                <Text color={'#ffffff'} fontSize={'1.2rem'}>
-                  下から配信を選びましょう！
-                </Text>
-                <Box
-                  height={'25%'}
-                  width={'auto'}
-                  position={'absolute'}
-                  bottom={'10px'}
-                  right={'35%'}
-                >
-                  <Yazirusi />
-                </Box>
-              </Flex>
-            )}
-          </AspectRatio>
-          <Flex
-            width={'35vw'}
-            maxHeight={'55vh'}
-            flexDirection={'column'}
-            rounded={'md'}
-            borderColor={'#ffffff'}
-            borderWidth={'3px'}
-            borderStyle={'dashed'}
-            gridGap={'10px 0'}
-          >
-            {viewYTID ? (
-              <iframe
-                src={`https://www.youtube.com/live_chat?v=${viewYTID}&embed_domain=${hostName}`}
-                width="100%"
-                height="100%"
-                title="Chat"
-                frameBorder="0"
-                allowFullScreen
-              />
-            ) : (
-              <Flex
-                rounded={'md'}
-                flexDirection={'column'}
-                gridGap={'10px 0'}
-                justify={'center'}
-                alignItems={'center'}
+    <Box backgroundColor={'#262626'} minH={'100vh'} height={'100vh'} width={'100vw'} p={2}>
+      <Grid
+        gridGap={1}
+        templateColumns={'repeat(3, 1fr)'}
+        templateRows={'repeat(3, 1fr)'}
+        width={'100%'}
+        height={'100%'}
+        gridTemplateAreas={`'m m g' 'm m c' 's s c'`}
+      >
+        <Flex
+          width={'100%'}
+          height={'100%'}
+          borderColor={'#ffffff'}
+          borderWidth={'2px'}
+          borderStyle={'dashed'}
+          gridArea={'m'}
+        >
+          {viewYTID ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${viewYTID}?autoplay=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              width="100%"
+              height="100%"
+            />
+          ) : (
+            <Flex
+              flexDirection={'column'}
+              gridGap={'10px 0'}
+              alignItems={'center'}
+              justifyContent={'center'}
+              width={'100%'}
+              height={'100%'}
+              position={'relative'}
+            >
+              <Icon as={MdLiveTv} color={'#ffffff'} boxSize={'100px'} />
+              <Text color={'#ffffff'} fontSize={'1.6rem'}>
+                まだ配信を見るトラックが選ばれてないみたいです
+              </Text>
+              <Text color={'#ffffff'} fontSize={'1.2rem'}>
+                下から配信を選びましょう！
+              </Text>
+              <Box
+                height={'25%'}
+                width={'auto'}
+                position={'absolute'}
+                bottom={'10px'}
+                right={'35%'}
               >
-                <Icon as={MdChat} color={'#ffffff'} boxSize={'100px'} />
-                <Text color={'#ffffff'} fontSize={'1.6rem'}>
-                  配信を選ぶとチャットが表示されます
-                </Text>
-                <Text color={'#ffffff'} fontSize={'1.2rem'}>
-                  字幕を見るボタンもここに表示されます。
-                </Text>
-              </Flex>
-            )}
-            <Flex justify={'space-evenly'}>
-              {viewUDWeb ? (
-                <Button as={'a'} href={viewUDWeb} target={'_blank'} rel={'noopener noreferrer'}>
-                  字幕をWebで見る
-                </Button>
-              ) : undefined}
-
-              {viewUDApp ? (
-                <Button
-                  as={'a'}
-                  href={`udtalkapp://?${viewUDApp.split('?')[1]}`}
-                  target={'_blank'}
-                  rel={'noopener noreferrer'}
-                >
-                  字幕をAppで見る
-                </Button>
-              ) : undefined}
+                <Yazirusi />
+              </Box>
             </Flex>
-            {/*<iframe src="https://live.udtalk.jp/1222dd9e47e38f1357840e2f5bf3da1a77fe139a8cd0f177f098734683c84115" width="100%" height="100%"  /> */}
-          </Flex>
+          )}
         </Flex>
-      </Center>
-      <Center>
+        <Flex
+          width={'100%'}
+          height={'100%'}
+          flexDirection={'column'}
+          borderColor={'#ffffff'}
+          borderWidth={'2px'}
+          borderStyle={'dashed'}
+          gridGap={'10px 0'}
+          justifyContent={'center'}
+          gridArea={'c'}
+        >
+          {viewYTID ? (
+            <iframe
+              src={`https://www.youtube.com/live_chat?v=${viewYTID}&embed_domain=${hostName}`}
+              width="100%"
+              height="100%"
+              title="Chat"
+              frameBorder="0"
+              allowFullScreen
+            />
+          ) : (
+            <Flex
+              flexDirection={'column'}
+              gridGap={'10px 0'}
+              alignItems={'center'}
+              justifyContent={'center'}
+              width={'100%'}
+              height={'100%'}
+            >
+              <Icon as={MdChat} color={'#ffffff'} boxSize={'100px'} />
+              <Text color={'#ffffff'} fontSize={'1.6rem'}>
+                配信を選ぶとチャットが表示されます
+              </Text>
+              <Text color={'#ffffff'} fontSize={'1.2rem'}>
+                字幕を見るボタンもここに表示されます。
+              </Text>
+            </Flex>
+          )}
+          <Flex justify={'space-evenly'}>
+            {viewUDWeb ? (
+              <Button as={'a'} href={viewUDWeb} target={'_blank'} rel={'noopener noreferrer'}>
+                字幕をWebで見る
+              </Button>
+            ) : undefined}
+
+            {viewUDApp ? (
+              <Button
+                as={'a'}
+                href={`udtalkapp://?${viewUDApp.split('?')[1]}`}
+                target={'_blank'}
+                rel={'noopener noreferrer'}
+              >
+                字幕をAppで見る
+              </Button>
+            ) : undefined}
+          </Flex>
+          {/*<iframe src="https://live.udtalk.jp/1222dd9e47e38f1357840e2f5bf3da1a77fe139a8cd0f177f098734683c84115" width="100%" height="100%"  /> */}
+        </Flex>
         <Flex
           paddingY={'18px'}
           flexWrap={'wrap'}
           gridGap={'10px'}
           justifyContent={'center'}
-          maxW={'1280px'}
+          width={'100%'}
+          height={'100%'}
+          overflowY={'scroll'}
+          gridArea={'s'}
         >
           {data
             ? data.data.map((value, i) => {
@@ -240,15 +254,13 @@ const Home: NextPage = () => {
               })
             : undefined}
         </Flex>
-        <AspectRatio
-          ratio={16 / 9}
+        <Box
           width={'100%'}
-          maxHeight={'70vh'}
-          rounded={'md'}
+          height={'100%'}
           borderColor={'#ffffff'}
-          borderWidth={'3px'}
+          borderWidth={'2px'}
           borderStyle={'dashed'}
-          alignSelf={'flex-start'}
+          gridArea={'g'}
         >
           {viewGRID ? (
             <iframe
@@ -261,9 +273,16 @@ const Home: NextPage = () => {
               height="100%"
             />
           ) : viewGRID === '' ? (
-            <Flex rounded={'md'} flexDirection={'column'} gridGap={'10px 0'}>
+            <Flex
+              height={'100%'}
+              width={'100%'}
+              flexDirection={'column'}
+              gridGap={'10px 0'}
+              alignItems={'center'}
+              justifyContent={'center'}
+            >
               <Icon as={MdPalette} color={'#ffffff'} boxSize={'100px'} />
-              <Text color={'#ffffff'} fontSize={'1.6rem'}>
+              <Text color={'#ffffff'} fontSize={'1.5rem'}>
                 このトラックにはグラレコはないみたいです
               </Text>
               <Text color={'#ffffff'} fontSize={'1.2rem'}>
@@ -273,9 +292,16 @@ const Home: NextPage = () => {
               </Text>
             </Flex>
           ) : (
-            <Flex rounded={'md'} flexDirection={'column'} gridGap={'10px 0'}>
+            <Flex
+              height={'100%'}
+              width={'100%'}
+              flexDirection={'column'}
+              gridGap={'10px 0'}
+              alignItems={'center'}
+              justifyContent={'center'}
+            >
               <Icon as={MdPalette} color={'#ffffff'} boxSize={'100px'} />
-              <Text color={'#ffffff'} fontSize={'1.6rem'}>
+              <Text color={'#ffffff'} fontSize={'1.5rem'}>
                 まだ配信を見るトラックが選ばれてないみたいです
               </Text>
               <Text color={'#ffffff'} fontSize={'1.2rem'}>
@@ -285,8 +311,8 @@ const Home: NextPage = () => {
               </Text>
             </Flex>
           )}
-        </AspectRatio>
-      </Center>
+        </Box>
+      </Grid>
       <Modal
         closeOnOverlayClick={false}
         isOpen={!cocCheck}
