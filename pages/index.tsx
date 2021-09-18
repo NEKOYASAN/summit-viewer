@@ -71,7 +71,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         },
       };
     } else {
-      const trackData = json[0];
+      const trackData = json[0].data[Number(track)];
       return {
         props: {
           trackData,
