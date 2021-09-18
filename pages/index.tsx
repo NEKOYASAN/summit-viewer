@@ -201,6 +201,15 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
           )}.png`}
         />
       ) : undefined}
+      {!ogpData && trackData && trackData.category !== 4 ? (
+        <MetaHead
+          title={`${trackData.title}を視聴中!`}
+          description={`Day2 Track${trackData.trackNum} | ${trackData.startTime} ~ ${trackData.endTime} | ${trackData.description}`}
+          ogpImage={`thumbnails/CfJS2021_day2_track${trackData.trackNum}${getTrackID(
+            trackData.startTime
+          )}.png`}
+        />
+      ) : undefined}
       <Grid
         gridGap={1}
         templateColumns={'repeat(3, 1fr)'}
