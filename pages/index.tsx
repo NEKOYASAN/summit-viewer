@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { GetServerSidePropsContext, NextPage } from 'next';
 import {
   Box,
   Button,
@@ -25,28 +25,68 @@ import json from '../day2.json';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { MdChat, MdLiveTv, MdPalette } from 'react-icons/md';
+import MetaHead from '../components/MetaHead';
+import { useRouter } from 'next/router';
 
+type SessionType = {
+  title: string;
+  startTime: string;
+  endTime: string;
+  category: number;
+  description: string;
+  inputCompleted: string;
+  presenters: string[];
+  programId: string;
+  trackNum: number;
+  broadcastingURL: string;
+  udtalkAppURL: string;
+  udtalkWebURL: string;
+  graphicRecording: string;
+};
 type TimeSections = {
   startTime: string;
   endTime: string;
-  data: ({
-    title: string;
-    startTime: string;
-    endTime: string;
-    category: number;
-    description: string;
-    inputCompleted: string;
-    presenters: string[];
-    programId: string;
-    trackNum: number;
-    broadcastingURL: string;
-    udtalkAppURL: string;
-    udtalkWebURL: string;
-    graphicRecording: string;
-  } | null)[];
+  data: (SessionType | null)[];
 };
 
-const Home: NextPage = () => {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const day = context.query.day;
+  const track = context.query.track;
+  const time = context.query.t;
+
+  if (typeof day === 'string' && typeof track === 'string' && typeof time === 'string') {
+    const dayj = dayjs.unix(Number(time));
+    const datas = json.filter((value) => {
+      return (
+        (dayj.isAfter(dayjs(`2021-09-19T${value.startTime}:00.000+09:00`, 'minute')) &&
+          dayj.isBefore(dayjs(`2021-09-19T${value.endTime}:00.000+09:00`, 'minute'))) ||
+        dayj.isSame(dayjs(`2021-09-19T${value.endTime}:00.000+09:00`, 'minute'))
+      );
+    });
+    if (datas.length) {
+      const trackData = datas[0].data[Number(track)];
+      return {
+        props: {
+          trackData,
+        },
+      };
+    } else {
+      const trackData = json[0];
+      return {
+        props: {
+          trackData,
+        },
+      };
+    }
+  }
+  return {
+    props: {
+      trackData: null,
+    },
+  };
+}
+
+const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
   const [data, setData] = useState<TimeSections | undefined>(undefined);
   const [time, updateTime] = useState(dayjs());
   const [viewTrack, setViewTrack] = useState(-1);
@@ -57,6 +97,8 @@ const Home: NextPage = () => {
   const [hostName, setHostName] = useState<string>('');
   const [cocCheck, setCoCCheck] = useState<boolean>(false);
   const [modalCheck, setModalCheck] = useState(false);
+  const [ogpData, setOGPData] = useState<SessionType | null>(null);
+  const router = useRouter();
   const updateData = () => {
     const datas = json.filter((value) => {
       return (
@@ -75,6 +117,9 @@ const Home: NextPage = () => {
     const CoC = localStorage.getItem('CoCCheck');
     setCoCCheck(!!CoC);
     setHostName(location.hostname);
+    if (trackData) {
+      setOGPData(trackData);
+    }
     updateData();
   }, []);
   useEffect(() => {
@@ -91,6 +136,15 @@ const Home: NextPage = () => {
       if (data.data[viewTrack]?.graphicRecording) {
         setViewGRID(data.data[viewTrack]?.graphicRecording);
       }
+      if (data.data[viewTrack]) {
+        setOGPData(data.data[viewTrack]);
+      }
+      if (viewTrack >= 0)
+        router.push(
+          `?day=2&track=${viewTrack}&t=${dayjs().unix()}`,
+          `?day=2&track=${viewTrack}&t=${dayjs().unix()}`,
+          { shallow: true }
+        );
     }
   }, [data]);
   useEffect(() => {
@@ -99,6 +153,15 @@ const Home: NextPage = () => {
       setViewUDWeb(data.data[viewTrack]?.udtalkWebURL);
       setViewUDApp(data.data[viewTrack]?.udtalkAppURL);
       setViewGRID(data.data[viewTrack]?.graphicRecording);
+      if (data.data[viewTrack]) {
+        setOGPData(data.data[viewTrack]);
+      }
+      if (viewTrack >= 0)
+        router.push(
+          `?day=2&track=${viewTrack}&t=${dayjs().unix()}`,
+          `?day=2&track=${viewTrack}&t=${dayjs().unix()}`,
+          { shallow: true }
+        );
     }
   }, [viewTrack]);
   useEffect(() => {
@@ -112,8 +175,32 @@ const Home: NextPage = () => {
       clearTimeout(timeoutId);
     };
   }, [time]);
+  const getTrackID = (startTime: string) => {
+    if (startTime === '13:30') {
+      return '-0';
+    }
+    if (startTime === '14:30' || startTime === '14:20') {
+      return '-1';
+    }
+    if (startTime === '15:30' || startTime === '15:20') {
+      return '-2';
+    }
+    if (startTime === '16:30' || startTime === '16:20') {
+      return '-3';
+    }
+    return '';
+  };
   return (
     <Box backgroundColor={'#262626'} minH={'100vh'} height={'100vh'} width={'100vw'} p={2}>
+      {ogpData && ogpData.category !== 4 ? (
+        <MetaHead
+          title={`${ogpData.title}を視聴中!`}
+          description={`Day2 Track${ogpData.trackNum} | ${ogpData.startTime} ~ ${ogpData.endTime} | ${ogpData.description}`}
+          ogpImage={`thumbnails/CfJS2021_day2_track${ogpData.trackNum}${getTrackID(
+            ogpData.startTime
+          )}.png`}
+        />
+      ) : undefined}
       <Grid
         gridGap={1}
         templateColumns={'repeat(3, 1fr)'}
