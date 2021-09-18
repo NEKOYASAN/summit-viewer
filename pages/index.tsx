@@ -25,11 +25,7 @@ import { Yazirusi } from '../components/yazirusi';
 import json from '../day1.json';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
-import { MdLiveTv, MdChat } from 'react-icons/md';
-import { use } from 'ast-types';
-
-const isBetween = require('dayjs/plugin/isBetween');
-dayjs.extend(isBetween);
+import { MdLiveTv, MdChat, MdPalette } from 'react-icons/md';
 
 type TimeSections = {
   startTime: string;
@@ -47,6 +43,7 @@ type TimeSections = {
     broadcastingURL: string;
     udtalkAppURL: string;
     udtalkWebURL: string;
+    graphicRecording: string;
   } | null)[];
 };
 
@@ -55,6 +52,7 @@ const Home: NextPage = () => {
   const [time, updateTime] = useState(dayjs());
   const [viewTrack, setViewTrack] = useState(-1);
   const [viewYTID, setViewYTID] = useState<undefined | string>(undefined);
+  const [viewGRID, setViewGRID] = useState<undefined | string>(undefined);
   const [viewUDWeb, setViewUDWeb] = useState<undefined | string>(undefined);
   const [viewUDApp, setViewUDApp] = useState<undefined | string>(undefined);
   const [hostName, setHostName] = useState<string>('');
@@ -91,6 +89,9 @@ const Home: NextPage = () => {
       if (data.data[viewTrack]?.udtalkAppURL) {
         setViewUDApp(data.data[viewTrack]?.udtalkAppURL);
       }
+      if (data.data[viewTrack]?.graphicRecording) {
+        setViewGRID(data.data[viewTrack]?.graphicRecording);
+      }
     }
   }, [data]);
   useEffect(() => {
@@ -98,6 +99,7 @@ const Home: NextPage = () => {
       setViewYTID(data.data[viewTrack]?.broadcastingURL);
       setViewUDWeb(data.data[viewTrack]?.udtalkWebURL);
       setViewUDApp(data.data[viewTrack]?.udtalkAppURL);
+      setViewGRID(data.data[viewTrack]?.graphicRecording);
     }
   }, [viewTrack]);
   useEffect(() => {
@@ -118,6 +120,7 @@ const Home: NextPage = () => {
           <AspectRatio
             ratio={16 / 9}
             width={'60vw'}
+            maxHeight={'55vh'}
             rounded={'md'}
             borderColor={'#ffffff'}
             borderWidth={'3px'}
@@ -156,13 +159,12 @@ const Home: NextPage = () => {
           </AspectRatio>
           <Flex
             width={'35vw'}
+            maxHeight={'55vh'}
             flexDirection={'column'}
             rounded={'md'}
             borderColor={'#ffffff'}
             borderWidth={'3px'}
             borderStyle={'dashed'}
-            justify={'center'}
-            alignItems={'center'}
             gridGap={'10px 0'}
           >
             {viewYTID ? (
@@ -238,6 +240,52 @@ const Home: NextPage = () => {
               })
             : undefined}
         </Flex>
+        <AspectRatio
+          ratio={16 / 9}
+          width={'100%'}
+          maxHeight={'70vh'}
+          rounded={'md'}
+          borderColor={'#ffffff'}
+          borderWidth={'3px'}
+          borderStyle={'dashed'}
+          alignSelf={'flex-start'}
+        >
+          {viewGRID ? (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${viewGRID}?autoplay=1&mute=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              width="100%"
+              height="100%"
+            />
+          ) : viewGRID === '' ? (
+            <Flex rounded={'md'} flexDirection={'column'} gridGap={'10px 0'}>
+              <Icon as={MdPalette} color={'#ffffff'} boxSize={'100px'} />
+              <Text color={'#ffffff'} fontSize={'1.6rem'}>
+                このトラックにはグラレコはないみたいです
+              </Text>
+              <Text color={'#ffffff'} fontSize={'1.2rem'}>
+                <Link href={'https://note.com/tokumisa/n/n8787d9cbd65f'} isExternal>
+                  グラレコについてはこちらをクリック！
+                </Link>
+              </Text>
+            </Flex>
+          ) : (
+            <Flex rounded={'md'} flexDirection={'column'} gridGap={'10px 0'}>
+              <Icon as={MdPalette} color={'#ffffff'} boxSize={'100px'} />
+              <Text color={'#ffffff'} fontSize={'1.6rem'}>
+                まだ配信を見るトラックが選ばれてないみたいです
+              </Text>
+              <Text color={'#ffffff'} fontSize={'1.2rem'}>
+                <Link href={'https://note.com/tokumisa/n/n8787d9cbd65f'} isExternal>
+                  グラレコについてはこちらをクリック！
+                </Link>
+              </Text>
+            </Flex>
+          )}
+        </AspectRatio>
       </Center>
       <Modal
         closeOnOverlayClick={false}
