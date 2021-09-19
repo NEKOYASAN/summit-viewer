@@ -146,7 +146,7 @@
     "startTime": "13:30",
     "endTime": "14:20",
     "data": [
-      0,
+      null,
       {
         "title": "休憩",
         "startTime": "13:30",
