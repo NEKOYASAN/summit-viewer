@@ -255,7 +255,7 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
           width={'100%'}
           height={'100%'}
           borderColor={'#ffffff'}
-          borderWidth={'2px'}
+          borderWidth={!viewYTID ? '2px' : undefined}
           borderStyle={'dashed'}
           gridArea={'m'}
         >
@@ -303,7 +303,7 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
           height={'100%'}
           flexDirection={'column'}
           borderColor={'#ffffff'}
-          borderWidth={'2px'}
+          borderWidth={!viewYTID ? '2px' : undefined}
           borderStyle={'dashed'}
           gridGap={'10px 0'}
           justifyContent={'center'}
@@ -430,7 +430,7 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
           width={'100%'}
           height={'100%'}
           borderColor={'#ffffff'}
-          borderWidth={'2px'}
+          borderWidth={!viewGRID || viewGRID === '' ? '2px' : undefined}
           borderStyle={'dashed'}
           gridArea={'g'}
         >
