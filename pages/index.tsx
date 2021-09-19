@@ -8,6 +8,7 @@ import {
   Grid,
   Heading,
   Icon,
+  IconButton,
   Link,
   ListItem,
   Modal,
@@ -24,9 +25,11 @@ import { Yazirusi } from '../components/yazirusi';
 import json from '../day2.json';
 import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
-import { MdChat, MdLiveTv, MdPalette } from 'react-icons/md';
+import { MdChat, MdContentCopy, MdLiveTv, MdPalette } from 'react-icons/md';
 import MetaHead from '../components/MetaHead';
 import { useRouter } from 'next/router';
+import { ButtonIcon } from '@chakra-ui/button/dist/types/button-icon';
+import { GrFacebook, GrTwitter } from 'react-icons/gr';
 
 type SessionType = {
   title: string;
@@ -99,6 +102,24 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
   const [modalCheck, setModalCheck] = useState(false);
   const [ogpData, setOGPData] = useState<SessionType | null>(null);
   const router = useRouter();
+  const twitter = () => {
+    if (ogpData) {
+      const url =
+        'https://twitter.com/intent/tweet?text=' +
+        ogpData.title +
+        'を視聴中！ / ' +
+        'リンクから一緒にみられます' +
+        '&url=' +
+        encodeURIComponent(location.href) +
+        '&' +
+        'hashtags=cfjsummit,civictech';
+      window.open(url);
+    }
+  };
+  const facebook = () => {
+    const url = 'https://www.facebook.com/sharer.php?u=' + encodeURIComponent(location.href);
+    window.open(url);
+  };
   const updateData = () => {
     const datas = json.filter((value) => {
       return (
@@ -336,31 +357,74 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
           {/*<iframe src="https://live.udtalk.jp/1222dd9e47e38f1357840e2f5bf3da1a77fe139a8cd0f177f098734683c84115" width="100%" height="100%"  /> */}
         </Flex>
         <Flex
-          paddingY={'18px'}
-          flexWrap={'wrap'}
-          gridGap={'10px'}
-          justifyContent={'center'}
+          flexDirection={'row'}
           width={'100%'}
           height={'100%'}
-          overflowY={'scroll'}
           gridArea={'s'}
+          overflowY={'scroll'}
         >
-          {data
-            ? data.data.map((value, i) => {
-                if (value) {
-                  return (
-                    <TrackCard
-                      key={value.programId}
-                      onClick={() => {
-                        setViewTrack(i);
-                      }}
-                      trackName={'Track' + value.trackNum}
-                      trackTitle={value.title}
-                    />
-                  );
-                }
-              })
-            : undefined}
+          <Flex
+            paddingY={'18px'}
+            flexWrap={'wrap'}
+            gridGap={'10px'}
+            justifyContent={'center'}
+            width={'90%'}
+            height={'100%'}
+            overflowY={'scroll'}
+          >
+            {data
+              ? data.data.map((value, i) => {
+                  if (value) {
+                    return (
+                      <TrackCard
+                        key={value.programId}
+                        onClick={() => {
+                          setViewTrack(i);
+                        }}
+                        trackName={'Track' + value.trackNum}
+                        trackTitle={value.title}
+                      />
+                    );
+                  }
+                })
+              : undefined}
+          </Flex>
+          {ogpData ? (
+            <Flex flexDirection={'column'} width={'48px'}>
+              <IconButton
+                aria-label={'Twitterでシェア！'}
+                icon={<Icon as={GrTwitter} />}
+                bgColor={'#1DA1F2'}
+                color={'#ffffff'}
+                size={'lg'}
+                margin={'1rem auto'}
+                onClick={() => {
+                  twitter();
+                }}
+              />
+              <IconButton
+                aria-label={'Facebookでシェア！'}
+                icon={<Icon as={GrFacebook} />}
+                bgColor={'#3b5998'}
+                color={'#ffffff'}
+                size={'lg'}
+                onClick={() => {
+                  facebook();
+                }}
+              />
+              {/*
+            <IconButton
+              aria-label={'コピーでシェア！'}
+              icon={<Icon as={MdContentCopy} />}
+              bgColor={'#ffffff'}
+              color={'#2f2f2f'}
+              size={'lg'}
+              onClick={() => {
+                twitter();
+              }}
+            />*/}
+            </Flex>
+          ) : undefined}
         </Flex>
         <Box
           width={'100%'}
