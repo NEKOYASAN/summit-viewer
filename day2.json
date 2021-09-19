@@ -146,7 +146,7 @@
     "startTime": "13:30",
     "endTime": "14:20",
     "data": [
-      null,
+      0,
       {
         "title": "休憩",
         "startTime": "13:30",
@@ -466,7 +466,7 @@
         "trackNum": 2,
         "udtalkWebURL": "https://live.udtalk.jp/a1a23fa4b8c587ed2e5652157f7729454ca4b97409ec72dc7a4de877f9c4fab7",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMmD%2B%2BNKI07nbX6tZhRyAN6PUiqWFUxJwz2R4E4YFmoEf%0D%0Acmv%2FRit8oEAfX%2FfsI45dQnbV62LvVmKJx7vznNpIOskg2wZw6ib8qjuruZHxnA2F%0D%0AfH7KJMVbHBlKEv1vfuUt8x0IQyBbBe2vb6SjtCZY8at9ZtmbApkk5uMBJuB4tQJ6%0D%0AMn%2BhKnN7iAewVZmdkLGb4kP3hVTnCr%2BOsihZg0xWSXnRZSwC4QzBHfyzQWkml%2B1Z%0D%0AEDU2cszxdyLJZnEtms3OBc%2BEeE3OpzYwN3vXxLDeXzo%3D",
-        "broadcastingURL": "ACykeL3jR-c",
+        "broadcastingURL": "gSUVNRStxLc",
         "graphicRecording": ""
       },
       {
@@ -483,7 +483,7 @@
         "trackNum": 3,
         "udtalkWebURL": "https://live.udtalk.jp/ca8e114ad00c0fbc82c7b58f610b62ba29b7efed597bc5f39ff28e54da6ef383",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMnsEhBB%2FHryh5AomowN6gqQKpWRIx2dCqI0qivAY7HqF%0D%0AYnyGuLZT3IaNI0hEc7XSOEWQuKXPa1UG3Mg1ujvQIkAYfeSopZDl94zYxMWuzVzQ%0D%0AhKkiq%2FmzuqPltKVIqYRbFuXWDmA0P%2Bupftyql692NjrZ6P4SV1mAySd0k2CEMNoM%0D%0AQVFDX%2Bc%2FYK0wneMcpZ36VxkEQ9k%2FBgGg3akM%2FGYgZv2zGY9GYwV230rGlo9oHtNH%0D%0AOOWm7SJFW%2FnYZTnf8Mlq5QCFv2nmlWwyQJTeEv8kE70%3D",
-        "broadcastingURL": "QxEFHG1y8KU",
+        "broadcastingURL": "0j4pKEUz_gw",
         "graphicRecording": ""
       },
       {
@@ -501,7 +501,7 @@
         "trackNum": 4,
         "udtalkWebURL": "https://live.udtalk.jp/a073d81c60d7b479f14f41f1b603e539409d3b3516c196f72212630860e38ace",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMt%2FV%2FeOkmPU88SovTLOAYT7gGGCi4YxZ9YFcefxe2wBa%0D%0ABw%2B5yKHwL788vyEpYPuHsl969uKdz6xcEK%2BhKdGEyj%2FrMirk%2FBDGXXVU1lqNWu7x%0D%0AGr47R0QK6jeibIDrInewoe2kbSPM11DYMbTduMMK9%2F6tIl7RcgRRtURBIOgjlWoP%0D%0A2RmFufzNIThiKcEGnY%2F2UvhbQQZJBkg87M4yzYIGpNHGpOo4EHKlhzZgOy9pS6p1%0D%0A0y1NnHGW2F3G6A0FgMD7P6VQIIrtTt7O3aR6FPx1T4s%3D",
-        "broadcastingURL": "oc1mTmRM7Ig",
+        "broadcastingURL": "BQ0ZgSQREio",
         "graphicRecording": "P3BnCDkGwe4"
       },
       {
@@ -521,7 +521,7 @@
         "trackNum": 5,
         "udtalkWebURL": "https://live.udtalk.jp/5db4caeb3020eb7676ceda6cec442c39b3884a7d187923a3f45cc830240822a9",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMpPnOCJ9ED8%2FvMcnSCY3dQrvzqNqgizn0X8lDeD00GnR%0D%0AIx7wdpONxzDzvbnJimE5Q5vhcyGkHUp4xh4JVvlaBljzPk0TjxqRH6KDMTbag8YC%0D%0ANLSxZqdi9j9yDxI3YZLk5E%2BjLEye%2Bo%2BRCW49imlMnXVVr%2FjCNMefqS%2FBXxfJquJO%0D%0AhJTO3xIONreBgvy2svBYqGARLpjSUkcQqi0ufiwFwpwvhVHGYAxkSUyBdW9E3zO2%0D%0AIgC11acJMAwfbztFb4yKgtBDxuDG2oHkW6n2g6sg1Yk%3D",
-        "broadcastingURL": "GLt0v8lm-_0",
+        "broadcastingURL": "iEskt_o2jPw",
         "graphicRecording": "fEJ3LZK28D8"
       },
       {
@@ -540,7 +540,7 @@
         "trackNum": 6,
         "udtalkWebURL": "https://live.udtalk.jp/f44ff4f28aa3dae8d21d7929d13b69b2c76bb8431d3bafd82bedbc4a42162af2",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMjcDcclmcgWy%2BpLM2tJxPcGnyY5ynXBRxT0m8ijqCzjb%0D%0AjYySwYPnR4%2BXaRJ3a%2FdXRkJa9zNej%2F2ZljoZUhHgHFvT31p2lWMNmPjK0b1csC%2Bm%0D%0AqAyiAw5s1GktEUXVCPokG2pLM93UR3JYuOAZUuLMcY1UStAu3vfqTtnO1CAUuFjF%0D%0AvHClXJoCJ6BbCJwJ%2FOmTWRPKExeO4%2FsfQLx4jiFrE9xFbgbHSnZSDuPWtUlqcsbF%0D%0Aa%2BPsc%2BZFX6ec0jtbsuTHwNaLoErLfWokq6uX9t%2FOZW0%3D",
-        "broadcastingURL": "A5u9UhScgrU",
+        "broadcastingURL": "vNH1cND8tSg",
         "graphicRecording": ""
       },
       {
@@ -738,7 +738,7 @@
         "trackNum": 0,
         "udtalkWebURL": "https://live.udtalk.jp/1222dd9e47e38f1357840e2f5bf3da1a77fe139a8cd0f177f098734683c84115",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMo7uLENLX96G%2BXEB%2B5Fdt7TETjnTGrYJhk%2BO4l86MNY%2B%0D%0ANfBQoZe5Vzc8RlWibAIOvEadL1rMp5V1FfS%2Fty6Gn7rGQLtKWWEJSjZ3OUrdd6Aw%0D%0A7ZZ2MChzNWIuWCvpl%2FYQwEuDaVcGKqM5l20Y3hMbA%2FuDPibKRmUjvySFEfRiV20J%0D%0AHoYtzD%2BOMk%2BJiZ3VWNA18hUfRo7fTPV%2B4OP%2BPErzaJE%2BFIRAb6WVUHZMiMcc9Iw0%0D%0A1WadabOWBgHnQ7weV8Sq4NzmMqaGmw213HijM8d2aZY%3D",
-        "broadcastingURL": "URtVSE1lnVk",
+        "broadcastingURL": "jC6hlbEt2wI",
         "graphicRecording": ""
       },
       {
@@ -759,7 +759,7 @@
         "trackNum": 1,
         "udtalkWebURL": "https://live.udtalk.jp/9b39ee8f27279ec6e86b4249e0c0cea5ed30a35bf820f15c66e1ffcd045ab06c",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMhtgMj4ifFvwPZtk4MVsPXOIBo2v8NBNlnnybyqct0K0%0D%0AtSkchBbMdU2AUkAiV7xyJfLvsM7mFAE5dAy8KQxhRZN%2Bt71%2Bl%2B%2FZgvGOsZudFYo8%0D%0A1OHb%2BmhH6gGZn39Tg4pPFT1A5hHcPJWld0xd291anGZwwkJSIorkWaQVmy%2BHs06i%0D%0Ak5v8lND8GNNXwlFAV58rcKqwV1dJv32u4lQvB9%2F02Q45vfv%2BWdbA%2FouMzUsQveS%2F%0D%0ARrkOVoW6%2BQL6q%2F19DzihrwCbAtZU74LzaPhsVB2d6%2B4%3D",
-        "broadcastingURL": "bAEZtVOgFog",
+        "broadcastingURL": "E1VU8TlcSJg",
         "graphicRecording": "P3BnCDkGwe4"
       },
       {
@@ -774,7 +774,7 @@
         "trackNum": 2,
         "udtalkWebURL": "https://live.udtalk.jp/a1a23fa4b8c587ed2e5652157f7729454ca4b97409ec72dc7a4de877f9c4fab7",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMmD%2B%2BNKI07nbX6tZhRyAN6PUiqWFUxJwz2R4E4YFmoEf%0D%0Acmv%2FRit8oEAfX%2FfsI45dQnbV62LvVmKJx7vznNpIOskg2wZw6ib8qjuruZHxnA2F%0D%0AfH7KJMVbHBlKEv1vfuUt8x0IQyBbBe2vb6SjtCZY8at9ZtmbApkk5uMBJuB4tQJ6%0D%0AMn%2BhKnN7iAewVZmdkLGb4kP3hVTnCr%2BOsihZg0xWSXnRZSwC4QzBHfyzQWkml%2B1Z%0D%0AEDU2cszxdyLJZnEtms3OBc%2BEeE3OpzYwN3vXxLDeXzo%3D",
-        "broadcastingURL": "MKRVK9ZAcZs",
+        "broadcastingURL": "gSUVNRStxLc",
         "graphicRecording": ""
       },
       {
@@ -791,7 +791,7 @@
         "trackNum": 3,
         "udtalkWebURL": "https://live.udtalk.jp/ca8e114ad00c0fbc82c7b58f610b62ba29b7efed597bc5f39ff28e54da6ef383",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMnsEhBB%2FHryh5AomowN6gqQKpWRIx2dCqI0qivAY7HqF%0D%0AYnyGuLZT3IaNI0hEc7XSOEWQuKXPa1UG3Mg1ujvQIkAYfeSopZDl94zYxMWuzVzQ%0D%0AhKkiq%2FmzuqPltKVIqYRbFuXWDmA0P%2Bupftyql692NjrZ6P4SV1mAySd0k2CEMNoM%0D%0AQVFDX%2Bc%2FYK0wneMcpZ36VxkEQ9k%2FBgGg3akM%2FGYgZv2zGY9GYwV230rGlo9oHtNH%0D%0AOOWm7SJFW%2FnYZTnf8Mlq5QCFv2nmlWwyQJTeEv8kE70%3D",
-        "broadcastingURL": "QxEFHG1y8KU",
+        "broadcastingURL": "0j4pKEUz_gw",
         "graphicRecording": ""
       },
       {
@@ -808,7 +808,7 @@
         "trackNum": 4,
         "udtalkWebURL": "https://live.udtalk.jp/a073d81c60d7b479f14f41f1b603e539409d3b3516c196f72212630860e38ace",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMt%2FV%2FeOkmPU88SovTLOAYT7gGGCi4YxZ9YFcefxe2wBa%0D%0ABw%2B5yKHwL788vyEpYPuHsl969uKdz6xcEK%2BhKdGEyj%2FrMirk%2FBDGXXVU1lqNWu7x%0D%0AGr47R0QK6jeibIDrInewoe2kbSPM11DYMbTduMMK9%2F6tIl7RcgRRtURBIOgjlWoP%0D%0A2RmFufzNIThiKcEGnY%2F2UvhbQQZJBkg87M4yzYIGpNHGpOo4EHKlhzZgOy9pS6p1%0D%0A0y1NnHGW2F3G6A0FgMD7P6VQIIrtTt7O3aR6FPx1T4s%3D",
-        "broadcastingURL": "oc1mTmRM7Ig",
+        "broadcastingURL": "BQ0ZgSQREio",
         "graphicRecording": ""
       },
       {
@@ -846,7 +846,7 @@
         "trackNum": 6,
         "udtalkWebURL": "https://live.udtalk.jp/f44ff4f28aa3dae8d21d7929d13b69b2c76bb8431d3bafd82bedbc4a42162af2",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMjcDcclmcgWy%2BpLM2tJxPcGnyY5ynXBRxT0m8ijqCzjb%0D%0AjYySwYPnR4%2BXaRJ3a%2FdXRkJa9zNej%2F2ZljoZUhHgHFvT31p2lWMNmPjK0b1csC%2Bm%0D%0AqAyiAw5s1GktEUXVCPokG2pLM93UR3JYuOAZUuLMcY1UStAu3vfqTtnO1CAUuFjF%0D%0AvHClXJoCJ6BbCJwJ%2FOmTWRPKExeO4%2FsfQLx4jiFrE9xFbgbHSnZSDuPWtUlqcsbF%0D%0Aa%2BPsc%2BZFX6ec0jtbsuTHwNaLoErLfWokq6uX9t%2FOZW0%3D",
-        "broadcastingURL": "A5u9UhScgrU",
+        "broadcastingURL": "vNH1cND8tSg",
         "graphicRecording": "fEJ3LZK28D8"
       },
       {
@@ -1117,7 +1117,7 @@
         "trackNum": 4,
         "udtalkWebURL": "https://live.udtalk.jp/a073d81c60d7b479f14f41f1b603e539409d3b3516c196f72212630860e38ace",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMt%2FV%2FeOkmPU88SovTLOAYT7gGGCi4YxZ9YFcefxe2wBa%0D%0ABw%2B5yKHwL788vyEpYPuHsl969uKdz6xcEK%2BhKdGEyj%2FrMirk%2FBDGXXVU1lqNWu7x%0D%0AGr47R0QK6jeibIDrInewoe2kbSPM11DYMbTduMMK9%2F6tIl7RcgRRtURBIOgjlWoP%0D%0A2RmFufzNIThiKcEGnY%2F2UvhbQQZJBkg87M4yzYIGpNHGpOo4EHKlhzZgOy9pS6p1%0D%0A0y1NnHGW2F3G6A0FgMD7P6VQIIrtTt7O3aR6FPx1T4s%3D",
-        "broadcastingURL": "oc1mTmRM7Ig",
+        "broadcastingURL": "BQ0ZgSQREio",
         "graphicRecording": ""
       },
       {
@@ -1135,7 +1135,7 @@
         "trackNum": 5,
         "udtalkWebURL": "https://live.udtalk.jp/5db4caeb3020eb7676ceda6cec442c39b3884a7d187923a3f45cc830240822a9",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMpPnOCJ9ED8%2FvMcnSCY3dQrvzqNqgizn0X8lDeD00GnR%0D%0AIx7wdpONxzDzvbnJimE5Q5vhcyGkHUp4xh4JVvlaBljzPk0TjxqRH6KDMTbag8YC%0D%0ANLSxZqdi9j9yDxI3YZLk5E%2BjLEye%2Bo%2BRCW49imlMnXVVr%2FjCNMefqS%2FBXxfJquJO%0D%0AhJTO3xIONreBgvy2svBYqGARLpjSUkcQqi0ufiwFwpwvhVHGYAxkSUyBdW9E3zO2%0D%0AIgC11acJMAwfbztFb4yKgtBDxuDG2oHkW6n2g6sg1Yk%3D",
-        "broadcastingURL": "GLt0v8lm-_0",
+        "broadcastingURL": "iEskt_o2jPw",
         "graphicRecording": ""
       },
       {
@@ -1154,7 +1154,7 @@
         "trackNum": 6,
         "udtalkWebURL": "https://live.udtalk.jp/f44ff4f28aa3dae8d21d7929d13b69b2c76bb8431d3bafd82bedbc4a42162af2",
         "udtalkAppURL": "https://service.udtalk.jp/redirect.php?token=68OZoTFyH4rN6xu2%2FXJpMjcDcclmcgWy%2BpLM2tJxPcGnyY5ynXBRxT0m8ijqCzjb%0D%0AjYySwYPnR4%2BXaRJ3a%2FdXRkJa9zNej%2F2ZljoZUhHgHFvT31p2lWMNmPjK0b1csC%2Bm%0D%0AqAyiAw5s1GktEUXVCPokG2pLM93UR3JYuOAZUuLMcY1UStAu3vfqTtnO1CAUuFjF%0D%0AvHClXJoCJ6BbCJwJ%2FOmTWRPKExeO4%2FsfQLx4jiFrE9xFbgbHSnZSDuPWtUlqcsbF%0D%0Aa%2BPsc%2BZFX6ec0jtbsuTHwNaLoErLfWokq6uX9t%2FOZW0%3D",
-        "broadcastingURL": "A5u9UhScgrU",
+        "broadcastingURL": "vNH1cND8tSg",
         "graphicRecording": ""
       },
       {
