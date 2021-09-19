@@ -361,14 +361,14 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
           width={'100%'}
           height={'100%'}
           gridArea={'s'}
-          overflowY={'scroll'}
+          overflowY={'hidden'}
         >
           <Flex
             paddingY={'18px'}
             flexWrap={'wrap'}
             gridGap={'10px'}
             justifyContent={'center'}
-            width={'90%'}
+            width={'100%'}
             height={'100%'}
             overflowY={'scroll'}
           >
@@ -390,7 +390,7 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
               : undefined}
           </Flex>
           {ogpData ? (
-            <Flex flexDirection={'column'} width={'48px'}>
+            <Flex flexDirection={'column'} width={'48px'} margin={'0.3rem 0.1rem'}>
               <IconButton
                 aria-label={'Twitterでシェア！'}
                 icon={<Icon as={GrTwitter} />}
