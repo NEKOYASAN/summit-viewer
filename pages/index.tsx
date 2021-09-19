@@ -242,7 +242,9 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
             trackData.startTime
           )}.png`}
         />
-      ) : undefined}
+      ) : (
+        <MetaHead />
+      )}
       <Grid
         gridGap={1}
         templateColumns={'repeat(3, 1fr)'}
