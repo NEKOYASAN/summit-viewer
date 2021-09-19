@@ -229,7 +229,6 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
     }
     return '';
   };
-  console.log(trackData);
   return (
     <Box backgroundColor={'#262626'} minH={'100vh'} height={'100vh'} width={'100vw'} p={2}>
       {ogpData && ogpData.category !== 4 ? (
