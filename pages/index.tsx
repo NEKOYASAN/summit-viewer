@@ -231,21 +231,20 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
   };
   return (
     <Box backgroundColor={'#262626'} minH={'100vh'} height={'100vh'} width={'100vw'} p={2}>
-      {ogpData && ogpData.category !== 4 ? (
-        <MetaHead
-          title={`${ogpData.title}を視聴中!`}
-          description={`Day2 Track${ogpData.trackNum} | ${ogpData.startTime} ~ ${ogpData.endTime} | ${ogpData.description}`}
-          ogpImage={`thumbnails/CfJS2021_day2_track${ogpData.trackNum}${getTrackID(
-            ogpData.startTime
-          )}.png`}
-        />
-      ) : undefined}
-      {!ogpData && trackData && trackData.category !== 4 ? (
+      {!ogpData && !!trackData && trackData.category !== 4 ? (
         <MetaHead
           title={`${trackData.title}を視聴中!`}
           description={`Day2 Track${trackData.trackNum} | ${trackData.startTime} ~ ${trackData.endTime} | ${trackData.description}`}
           ogpImage={`thumbnails/CfJS2021_day2_track${trackData.trackNum}${getTrackID(
             trackData.startTime
+          )}.png`}
+        />
+      ) : ogpData && ogpData.category !== 4 ? (
+        <MetaHead
+          title={`${ogpData.title}を視聴中!`}
+          description={`Day2 Track${ogpData.trackNum} | ${ogpData.startTime} ~ ${ogpData.endTime} | ${ogpData.description}`}
+          ogpImage={`thumbnails/CfJS2021_day2_track${ogpData.trackNum}${getTrackID(
+            ogpData.startTime
           )}.png`}
         />
       ) : (
