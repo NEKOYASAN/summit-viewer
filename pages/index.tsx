@@ -201,6 +201,12 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
     const timeoutId = setTimeout(() => {
       if (time.minute() !== dayjs().minute()) {
         updateData();
+        if (viewTrack >= 0)
+          router.push(
+            `?day=2&track=${viewTrack}&t=${dayjs().unix()}`,
+            `?day=2&track=${viewTrack}&t=${dayjs().unix()}`,
+            { shallow: true }
+          );
       }
       updateTime(dayjs());
     }, 1000);
@@ -223,6 +229,7 @@ const Home: NextPage<{ trackData: SessionType | null }> = ({ trackData }) => {
     }
     return '';
   };
+  console.log(trackData);
   return (
     <Box backgroundColor={'#262626'} minH={'100vh'} height={'100vh'} width={'100vw'} p={2}>
       {ogpData && ogpData.category !== 4 ? (
